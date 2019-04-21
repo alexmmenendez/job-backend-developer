@@ -38,23 +38,27 @@ public class Cliente implements UserDetails, Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "PERFIL", nullable = false)
 	private PerfilEnum perfil;
-	
+
+	@Column(name = "HOBBY")
+	private String hobby;
+
+	@Column(name = "JOB")
+	private String job;
+
 	public Cliente () {
 	}
 
-	public Cliente (String nome, String usuario, String senha, PerfilEnum perfil) {
+	public Cliente (String nome, String usuario, String senha, PerfilEnum perfil, String hobby, String job) {
 		this.setNome(nome);
 		this.setUsuario(usuario);
 		this.setSenha(senha);
 		this.setPerfil(perfil);
+		this.setHobby(hobby);
+		this.setJob(job);
 	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -87,6 +91,22 @@ public class Cliente implements UserDetails, Serializable {
 
 	public void setPerfil(PerfilEnum perfil) {
 		this.perfil = perfil;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
 	}
 
 	@Override
@@ -128,4 +148,5 @@ public class Cliente implements UserDetails, Serializable {
 	public boolean isEnabled() {
 		return true;
 	}
+
 }

@@ -7,8 +7,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ClienteOutput {
 
+    private Long id;
     private String nome;
     private String usuario;
+    private String job;
+    private String hobby;
     private PerfilEnum perfil;
 
     public ClienteOutput() {
@@ -16,9 +19,20 @@ public class ClienteOutput {
     }
 
     public ClienteOutput(Cliente cliente) {
-        this.nome = cliente.getNome();
-        this.usuario = cliente.getUsuario();
-        this.perfil = cliente.getPerfil();
+        this.setId(cliente.getId());
+        this.setNome(cliente.getNome());
+        this.setUsuario(cliente.getUsuario());
+        this.setPerfil(cliente.getPerfil());
+        this.setJob(cliente.getJob());
+        this.setHobby(cliente.getHobby());
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -45,12 +59,19 @@ public class ClienteOutput {
         this.perfil = perfil;
     }
 
-    @Override
-    public String toString() {
-        return "ClienteOutput{" +
-                "nome='" + nome + '\'' +
-                ", usuario='" + usuario + '\'' +
-                ", perfil=" + perfil +
-                '}';
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
     }
 }

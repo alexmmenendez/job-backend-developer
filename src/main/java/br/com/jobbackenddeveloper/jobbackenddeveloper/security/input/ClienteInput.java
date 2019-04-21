@@ -10,6 +10,8 @@ public class ClienteInput {
 	private String usuario;
 	private String senha;
 	private String nome;
+	private String job;
+	private String hobby;
 
 	public ClienteInput() {
 	}
@@ -40,5 +42,22 @@ public class ClienteInput {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
+	@NotNull(message = "Job não pode ser vazio.")
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	@NotNull(message = "Hobby não pode ser vazio.")
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
 }
