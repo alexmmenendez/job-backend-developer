@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 
 import java.math.BigDecimal;
@@ -22,7 +23,8 @@ public class JobBackendDeveloperApplication {
 	@Bean
 	CommandLineRunner initDatabase(ClienteRepository clienteRepository) {
 		return args -> {
-			clienteRepository.save(new Cliente("Alex", "alex.menendez", SenhaUtils.gerarBCrypt("123"), PerfilEnum.ROLE_ADMIN));
+			clienteRepository.save(new Cliente("Alex Menendez", "alex.menendez",
+					SenhaUtils.gerarBCrypt("123"), PerfilEnum.ROLE_ADMIN, "Movies", "Developer backend"));
 		};
 	}
 
