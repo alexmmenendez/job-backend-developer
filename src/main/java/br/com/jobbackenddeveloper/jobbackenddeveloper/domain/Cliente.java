@@ -57,6 +57,16 @@ public class Cliente implements UserDetails, Serializable {
 		this.setJob(job);
 	}
 
+	public Cliente (Long id, String nome, String usuario, String senha, PerfilEnum perfil, String hobby, String job) {
+		this.id = id;
+		this.setNome(nome);
+		this.setUsuario(usuario);
+		this.setSenha(senha);
+		this.setPerfil(perfil);
+		this.setHobby(hobby);
+		this.setJob(job);
+	}
+
 	public Long getId() {
 		return id;
 	}
