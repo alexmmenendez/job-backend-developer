@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "c492ab7e-7713-4a29-b597-808a176e2178",
+		"name": "JobCase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44e56c59-6e55-4b90-ad29-491202f9016f",
+						"exec": [
+							"var json = JSON.parse(responseBody);",
+							"pm.environment.set(\"token\", json.data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"usuario\":\"alex.menendez\",\n\t\"senha\":\"123\"\n}"
+				},
+				"url": {
+					"raw": "{{urlBase}}/login",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca cliente",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlBase}}/api/v1/cliente/2",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cliente",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar cliente",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Alex M. Menendez\",\n\t\"job\": \"Java backend\",\n\t\"hobby\": \"Songs\"\n}"
+				},
+				"url": {
+					"raw": "{{urlBase}}/api/v1/cliente/alterar/1",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cliente",
+						"alterar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"usuario\": \"al.pacino\",\n\t\"senha\": \"321\",\n\t\"nome\": \"Al Pacino\",\n\t\"job\": \"Actor\",\n\t\"hobby\": \"Forget about\"\n}"
+				},
+				"url": {
+					"raw": "{{urlBase}}/api/v1/cliente/salvar",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cliente",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlBase}}/api/v1/cliente/deletar/2",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cliente",
+						"deletar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
