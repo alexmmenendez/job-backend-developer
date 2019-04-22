@@ -45,10 +45,10 @@ public class ClienteService {
         repository.delete(cliente);
     }
 
-    // Don't do this at home
+   //Simula um sistema sobrecarregado
     private void simulateSlowService() {
         try {
-            long time = 3000L;
+            long time = 5000L;
             Thread.sleep(time);
         } catch (InterruptedException e) {
             throw new IllegalStateException(e);
