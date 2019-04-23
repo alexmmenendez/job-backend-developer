@@ -45,3 +45,7 @@ cacheado.
 
     @CacheEvict anotação para retirar do caching, pode ser utilizados em métodos de remoção, como utilizei, ou em métodos de rotina
 para remover o que está a mais tempo em memória.
+
+    Para demonstração do caching, na busca de um cliente há o método 'simulateSlowService', que realizada uma Thread.sleep();
+simulando uma sistema lento. Após a primeira busca de um cliente x, na próxima não ocorrerá esperado sleep(), pois o Spring já
+terá cacheado este e cliente e não invocará o método para buscar o cliente no banco novamente.
